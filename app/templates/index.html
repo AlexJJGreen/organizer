@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if month %}
+        {% for day in month %}
+            {% if day == today %}
+            <div class="today">
+                <p>TODAY!</p>
+            </div>
+            {% else %}
+            <div class="calendar_card">
+                <p>{{ day }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

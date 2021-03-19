@@ -1,0 +1,9 @@
+
+#main_content {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.calendar_card {
+    display: inline-block;
+}

@@ -1,11 +1,10 @@
-from app import app
-from calendar_crud import calendar_crud
-from flask import render_template
+from . import calendar_crud
+from flask import render_template, url_for
 
 
 @calendar_crud.route("/create")
 def create():
-    return "CREATE"
+    return render_template("base.html")
 
 @calendar_crud.route("/read")
 def read():

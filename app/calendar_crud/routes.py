@@ -1,10 +1,12 @@
 from . import calendar_crud
 from flask import render_template, url_for
+from .forms import CreateForm
 
 
 @calendar_crud.route("/create")
-def create():
-    return render_template("base.html")
+def create(methods=["GET", "POST"]):
+    form = CreateForm()
+    return render_template("create.html", form=form)
 
 @calendar_crud.route("/read")
 def read():

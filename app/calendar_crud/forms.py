@@ -7,5 +7,5 @@ from wtforms.validators import DataRequired, optional, length
 class CreateForm(FlaskForm):
     task_name = StringField("Task", validators=[DataRequired()])
     date_time = DateTimeLocalField("Date & Time", validators=[DataRequired()])
-    details = TextAreaField("Details", validators=[optional(), length(max=200)])
+    details = TextAreaField("Details", validators=[optional(), length(max=256)])
     create = SubmitField("Create")

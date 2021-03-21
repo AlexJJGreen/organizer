@@ -1,7 +1,5 @@
 from app import app
 from flask import render_template, url_for
-from app.calendars import get_month, TODAY
-from app.forms import LoginForm
 
 @app.route("/index")
 @app.route("/")

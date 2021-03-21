@@ -10,9 +10,3 @@ def index():
     today = TODAY.day
     month = get_month(TODAY)
     return render_template("index.html", subtitle=subtitle, month=month, today=today)
-
-@app.route("/login")
-def login(methods=["GET", "POST"]):
-    subtitle = "Login"
-    form = LoginForm()
-    return render_template("login.html", subtitle=subtitle, form=form)

@@ -10,3 +10,7 @@ NB. BLUEPRINTS STATIC URL BEHAVIOUR
 
 https://www.reddit.com/r/flask/comments/61niyi/af_static_folder_with_blueprints/
 
+NB. Blueprints and databases - Here's the fix: 2nd Answer
+
+https://stackoverflow.com/questions/13058800/using-flask-sqlalchemy-in-blueprint-models-without-reference-to-the-app
+

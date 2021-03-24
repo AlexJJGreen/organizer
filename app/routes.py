@@ -1,5 +1,5 @@
-from app import app
 from flask import render_template, url_for
+from flask import current_app as app
 
 @app.route("/index")
 @app.route("/")

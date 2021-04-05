@@ -14,3 +14,6 @@ NB. Blueprints and databases - Here's the fix: 2nd Answer
 
 https://stackoverflow.com/questions/13058800/using-flask-sqlalchemy-in-blueprint-models-without-reference-to-the-app
 
+
+# many to many primary key constraint
+https://stackoverflow.com/questions/24872541/could-not-assemble-any-primary-key-columns-for-mapped-table

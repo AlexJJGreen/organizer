@@ -10,7 +10,7 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField("Remember Me")
     submit = SubmitField("Sign In")
 
-class NewUserForm(FlaskForm):
+class CreateUserForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), length(max=256)])
     username = StringField("Userame", validators=[DataRequired(), length(max=256)])
     email = StringField("Email", validators=[DataRequired(), length(max=256), Email()])
@@ -19,4 +19,10 @@ class NewUserForm(FlaskForm):
     age = DecimalField("Age", validators=[optional()])
     about_me = TextAreaField("About Me", validators=[optional(), length(max=256)])
     submit = SubmitField("Register")
+
+#edit user
+
+#delete user
+
+
 

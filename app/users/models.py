@@ -15,6 +15,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(256))
     age = db.Column(db.Integer)
     about_me = db.Column(db.String(256), index=True)
+    group_member = db.relationship("GroupMembers", backref="group_member", lazy="dynamic")
 
     def __repr__(self):
         return "<User_id {} : Username {}>".format(self.id, self.username)
@@ -28,3 +29,15 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+class Group(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    group_name = db.Column(db.String(256), index=True, unique=True)
+    group_members = db.relationship("GroupMembers", backref="group", lazy="dynamic")
+
+class GroupMembers(db.Model):
+    # 
+    __table_args__ = (db.PrimaryKeyConstraint("group_id", "member_id"),)
+    group_id = db.Column(db.Integer, db.ForeignKey("group.id"))
+    member_id = db.Column(db.Integer, db.ForeignKey("user.id"))

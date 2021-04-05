@@ -1,7 +1,7 @@
 from . import users
 from flask import render_template, url_for
-from .forms import LoginForm
-from .models import User
+from .forms import LoginForm, CreateUserForm
+from .models import User, 
 from flask_login import current_user, login_user, logout_user
 
 @users.route("/login", methods=["GET", "POST"])
@@ -16,7 +16,23 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html", subtitle=subtitle, form=form)
 
-@users.route("logout")
+@users.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("index"))
+
+@users.route("/create_user", methods=["GET", "POST"])
+def create_user():
+    subtitle = "Create User"
+    if current_user.is_authenticated:
+        return redirect(url_for("index"))
+    form = CreateUserForm()
+    if form.validate_on_submit():
+        check_username = User.query.filter_by(username=form.username.data)
+        if check_username:
+            # GET SOME FLASH EVENT!!!! <! ------------------------- RESOLVE THIS --------------------------- >
+            return "username already exists"
+        else:
+           user = User(# ADD USER DATA FROM FORM #)
+    return render_template("create_user", subtitle=subtitle, form=form)
+

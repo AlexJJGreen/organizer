@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from app.users.models import User
 
 db = SQLAlchemy()
 
@@ -10,6 +11,6 @@ class Group(db.Model):
 class GroupMembers(db.Model):
     # 
     __table_args__ = (db.PrimaryKeyConstraint("group_id", "member_id"),)
-    group_id = db.Column(db.Integer, db.ForeignKey("group.id"))
-    member_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    group_id = db.Column(db.ForeignKey("group.id"))
+    member_id = db.Column(db.ForeignKey(User.id))
 

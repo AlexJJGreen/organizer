@@ -32,7 +32,7 @@ def create_app():
         # group modules
         from app.groups import groups
         from app.groups.models import db as group_db
-        app.register_blueprint(groups, url_prefix("/groups"))
+        app.register_blueprint(groups, url_prefix="/groups")
 
         # init blueprint databases
         dbs = [user_db, calendar_crud_db, group_db]

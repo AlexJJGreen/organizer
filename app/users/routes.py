@@ -1,7 +1,7 @@
 from . import users
 from flask import render_template, url_for, flash, redirect
 from .forms import LoginForm, CreateUserForm
-from .models import User, 
+from .models import User, UserProfile
 from flask_login import current_user, login_user, logout_user
 
 @users.route("/login", methods=["GET", "POST"])

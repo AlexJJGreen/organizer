@@ -32,11 +32,17 @@ def create_user():
         if check_username:
             flash("Username already exists. Please use a different name")
         else:
-           user = User(# ADD USER DATA FROM FORM #)
+           user = User()
            return redirect(url_for("login"))
     return render_template("create_user", subtitle=subtitle, form=form)
 
 @users.route("/profile", methods=["GET", "POST"])
 def profile():
+    subtitle = "Profile"
+    #query database - get user profile
+    # populate form with data
+
+    #on submit push changes to db
+    return render_template("profile", subtitle=subtitle)
 
 

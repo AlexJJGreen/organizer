@@ -11,16 +11,16 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Sign In")
 
 class CreateUserForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired(), length(max=256)])
     username = StringField("Userame", validators=[DataRequired(), length(max=256)])
     email = StringField("Email", validators=[DataRequired(), length(max=256), Email()])
     password = PasswordField("Password", validators=[DataRequired()])
     password2 = PasswordField("Repeat Password", validators=[DataRequired(), EqualTo("password")])
+
+class UserProfile(FlaskForm):
+    name = StringField("Name", validators=[DataRequired(), length(max=256)])
     age = DecimalField("Age", validators=[optional()])
     about_me = TextAreaField("About Me", validators=[optional(), length(max=256)])
     submit = SubmitField("Register")
-
-#edit user
 
 #delete user
 

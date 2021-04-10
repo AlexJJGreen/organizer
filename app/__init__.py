@@ -29,20 +29,20 @@ def create_app():
         from app.calendar import calendar
         app.register_blueprint(calendar, url_prefix="/calendar")
 
-        # init blueprint databases
-        user_db.init_app(app)
-        calendar_crud_db.init_app(app)
+        # group modules
+        from app.groups import groups
+        from app.groups.models import db as group_db
+        app.register_blueprint(groups, url_prefix("/groups"))
 
-        # init db migrations
-        migrate.init_app(app, user_db)
-        migrate.init_app(app, calendar_crud_db)
+        # init blueprint databases
+        dbs = [user_db, calendar_crud_db, group_db]
+        for db in dbs:
+            db.init_app(app)
+            migrate.init_app(app, db)
+            db.create_all()
 
         #init login manager
         login.init_app(app)
-
-        #create databases
-        user_db.create_all()
-        calendar_crud_db.create_all()
 
         from app import routes
 

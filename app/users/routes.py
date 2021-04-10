@@ -1,5 +1,5 @@
 from . import users
-from flask import render_template, url_for
+from flask import render_template, url_for, flash, redirect
 from .forms import LoginForm, CreateUserForm
 from .models import User, 
 from flask_login import current_user, login_user, logout_user
@@ -30,9 +30,13 @@ def create_user():
     if form.validate_on_submit():
         check_username = User.query.filter_by(username=form.username.data)
         if check_username:
-            # GET SOME FLASH EVENT!!!! <! ------------------------- RESOLVE THIS --------------------------- >
-            return "username already exists"
+            flash("Username already exists. Please use a different name")
         else:
            user = User(# ADD USER DATA FROM FORM #)
+           return redirect(url_for("login"))
     return render_template("create_user", subtitle=subtitle, form=form)
+
+@users.route("/profile", methods=["GET", "POST"])
+def profile():
+
 

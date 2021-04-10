@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="" method="POST" novalidate></form>
+    <form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}
+            <br>
+            {{ form.name() }}
+        </p>
+        <p>
+            {{ form.username.label }}
+            <br>
+            {{ form.username() }}
+        </p>
+        <p>
+            {{ form.email.label }}
+            <br>
+            {{ form.email() }}
+        </p>
+        <p>
+            {{ form.password.label }}
+            <br>
+            {{ form.password() }}
+        </p>
+        <p>
+            {{ form.password2.label }}
+            <br>
+            {{ form.password2() }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
 {% endblock %}

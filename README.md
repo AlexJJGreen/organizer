@@ -17,3 +17,7 @@ https://stackoverflow.com/questions/13058800/using-flask-sqlalchemy-in-blueprint
 
 # many to many primary key constraint
 https://stackoverflow.com/questions/24872541/could-not-assemble-any-primary-key-columns-for-mapped-table
+
+# 1 to many joins
+
+import the object and pass as arg to foreign key rather than referring to table!!!

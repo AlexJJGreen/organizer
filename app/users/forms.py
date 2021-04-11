@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, FileField
 from wtforms.fields.html5 import DecimalField
 from wtforms.validators import DataRequired, optional, length, Email, EqualTo
 from . import models
@@ -19,6 +19,7 @@ class CreateUserForm(FlaskForm):
 class UserProfile(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), length(max=256)])
     age = DecimalField("Age", validators=[optional()])
+    profile_pic = FileField("Profile Pic", validators=[optional()])
     about_me = TextAreaField("About Me", validators=[optional(), length(max=256)])
     submit = SubmitField("Register")
 

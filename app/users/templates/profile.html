@@ -1,5 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}
+            <br>
+            {{ form.name() }}
+        </p>
+        <p>
+            {{ form.age.label }}
+            <br>
+            {{ form.age() }}
+        </p>
+        <p>
+            {{ form.profile_pic.label }}
+            <br>
+            {{ form.profile_pic() }}
+        </p>
+        <p>
+            {{ form.about_me.label }}
+            <br>
+            {{ form.about_me() }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
 {% endblock %}
+
+<!--
+    
+    from form model: UserProfile
+    
+    name = StringField("Name", validators=[DataRequired(), length(max=256)])
+    age = DecimalField("Age", validators=[optional()])
+    profile_pic = FileField("Profile Pic", validators=[optional()])
+    about_me = TextAreaField("About Me", validators=[optional(), length(max=256)])
+    submit = SubmitField("Register")
+
+-->

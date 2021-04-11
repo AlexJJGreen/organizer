@@ -25,6 +25,7 @@ class User(UserMixin, db.Model):
 class UserProfile(db.Model):
     user_id = db.Column(db.ForeignKey("user.id"), primary_key=True)
     name = db.Column(db.String(256), index=True)
+    profile_pic = db.Column(db.LargeBinary(2048))
     age = db.Column(db.Integer)
     about_me = db.Column(db.String(256), index=True)
 

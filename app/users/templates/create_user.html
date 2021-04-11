@@ -2,12 +2,7 @@
 
 {% block content %}
     <form action="" method="POST" novalidate>
-    {{ form.hidden_tag() }}
-        <p>
-            {{ form.name.label }}
-            <br>
-            {{ form.name() }}
-        </p>
+    {{ form.hidden_tag() }}        
         <p>
             {{ form.username.label }}
             <br>

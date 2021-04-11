@@ -9,7 +9,6 @@ class Group(db.Model):
     group_members = db.relationship("GroupMembers", backref="group", lazy="dynamic")
 
 class GroupMembers(db.Model):
-    # 
     __table_args__ = (db.PrimaryKeyConstraint("group_id", "member_id"),)
     group_id = db.Column(db.ForeignKey("group.id"))
     member_id = db.Column(db.ForeignKey(User.id))
